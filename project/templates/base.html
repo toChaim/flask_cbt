@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CBT Game</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
+</head>
+<body>
+	<nav>
+		<a href="">About</a>
+		<a href="{{url_for('users.new')}}">Sign Up</a>
+		<a href="">Login</a>
+		<a href="">Play</a>
+	</nav>
+	{% for message in get_flashed_messages() %}
+	    {{ message }}
+	{% endfor %}
+	
+    {% block content %}
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='flask_cbt.js')}}"></script>
+</body>
+</html>

@@ -1,12 +1,13 @@
-from project import db, bcrypt
+from project import bcrypt, db, login_manager
+from flask_login import UserMixin
 
-MatchResponse = db.Table('match_resonses',
+MatchResponse = db.Table('match_responses',
 	db.Column('id', db.Integer, primary_key=True),
 	db.Column('match_id', db.Integer, db.ForeignKey('matches.id', ondelete='cascade')),
 	db.Column('response_id', db.Integer, db.ForeignKey('responses.id', ondelete='cascade'))
 	)
 
-class User(db.Model):
+class User(db.Model, UserMixin):
 	__tablename__ = 'users'
 
 	id = db.Column(db.Integer, primary_key=True)
@@ -19,6 +20,10 @@ class User(db.Model):
 		self.first_name = first_name
 		self.username = username
 		self.password = bcrypt.generate_password_hash(password).decode('UTF-8')
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 class Prompt(db.Model):
 	__tablename__ = 'prompts'
