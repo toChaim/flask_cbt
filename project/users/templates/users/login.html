@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Signing in to my little game.</h1>
+<form method="POST" action="{{url_for('users.login')}}">
+	<div>{{ form.csrf_token }}
+	{{ form.username.label }}
+	{{ form.username }}
+	{% if form.username.errors %}
+		<span>
+			{% for error in form.username.errors %}
+          		{{ error }}
+        	{% endfor %}
+		</span>
+    {% endif %}</div>
+
+    <div>{{ form.password.label }}
+	{{ form.password }}
+	{% if form.password.errors %}
+		<span>
+			{% for error in form.password.errors %}
+          		{{ error }}
+        	{% endfor %}
+		</span>
+    {% endif %}</div>
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

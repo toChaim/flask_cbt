@@ -19,9 +19,10 @@ Stretch Goals:
 Thanks:
 
 Tests:
-Uniqe Propts for each User
+Uniqe Prompts for each User
 Uniqe Responses for each Prompt
 No match lasting longer then five minutes
+cascading delete
 
 A/B test:
 Dose first person (I am handsome.) or second (You are handsome.) or even third (Hank is handsome.) work better for prompts?

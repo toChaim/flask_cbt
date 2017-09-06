@@ -21,6 +21,14 @@ class User(db.Model, UserMixin):
 		self.username = username
 		self.password = bcrypt.generate_password_hash(password).decode('UTF-8')
 
+	@classmethod
+	def authenticate(cls, username, password):
+		user = cls.query.filter_by(username = username).first()
+		if user and bcrypt.check_password_hash(user.password, password):
+			return user
+		return False
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
@@ -33,7 +41,7 @@ class Prompt(db.Model):
 	affirmation = db.Column(db.Boolean)
 	user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='cascade'), nullable=False)
 	__table_args__ = (db.UniqueConstraint('user_id', 'title', name='_user_titel_uc'),)
-	responses = db.relationship('Resonse', backref='prompt')
+	responses = db.relationship('Response', backref='prompt')
 
 	def __init__(self, title, affirmation, user_id):
 		self.title = title

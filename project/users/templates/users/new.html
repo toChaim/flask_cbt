@@ -3,26 +3,39 @@
 {% block content %}
 <h1>Signing up for my little game.</h1>
 <p>Signing up for the game lets you customize the game for yourself. You can also see your history.</p>
-<form action="">
-	{{ form.csrf_token }}
-	{{ form.first_name.label}}
+<form method="POST" action="{{url_for('users.index')}}">
+	<div>{{ form.csrf_token }}
+	{{ form.first_name.label }}
 	{{form.first_name}}
 	{% if form.first_name.errors %}
 		<span>
-			{% for error in field.errors %}
+			{% for error in form.first_name.errors %}
           		{{ error }}
         	{% endfor %}
 		</span>
-    {% endif %}
-    {{ form.username.label}}
-	{{form.username}}
+    {% endif %}</div>
+
+    <div>{{ form.username.label }}
+	{{ form.username }}
 	{% if form.username.errors %}
 		<span>
-			{% for error in field.errors %}
+			{% for error in form.username.errors %}
           		{{ error }}
         	{% endfor %}
 		</span>
-    {% endif %}
+    {% endif %}</div>
 
+    <div>{{ form.password.label }}
+	{{ form.password }}
+	{% if form.password.errors %}
+		<span>
+			{% for error in form.password.errors %}
+          		{{ error }}
+        	{% endfor %}
+		</span>
+    {% endif %}</div>
+    <div>{{ form.confirm.label }}
+	{{ form.confirm }}</div>
+	<input type="submit" value="Submit">
 </form>
 {% endblock %}

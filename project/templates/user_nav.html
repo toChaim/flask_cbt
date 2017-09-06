@@ -1,0 +1,8 @@
+<nav>
+	<a href="{{url_for('users.show',id=current_user.id)}}">{{current_user.username}}</a>
+	<a href="{{url_for('users.index')}}">About</a>
+	<a href="{{url_for('users.logout')}}">Logout</a>
+	<a href="{{url_for('users.edit', id=current_user.id)}}">Edit Profile</a>
+	<a href="">Prompts</a>
+	<a href="">Play</a>
+</nav>

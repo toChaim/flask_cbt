@@ -6,12 +6,17 @@
 	<link rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
 </head>
 <body>
-	<nav>
-		<a href="">About</a>
-		<a href="{{url_for('users.new')}}">Sign Up</a>
-		<a href="">Login</a>
-		<a href="">Play</a>
-	</nav>
+	{% if current_user.is_authenticated %}
+	  {% include 'user_nav.html' %}
+	{% else %}
+		<nav>
+			<a href="{{url_for('users.index')}}">About</a>
+			<a href="{{url_for('users.new')}}">Sign Up</a>
+			<a href="{{url_for('users.login')}}">Login</a>
+			<a href="">Play</a>
+		</nav>
+	{% endif %}
+	
 	{% for message in get_flashed_messages() %}
 	    {{ message }}
 	{% endfor %}
