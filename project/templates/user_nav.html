@@ -3,6 +3,6 @@
 	<a href="{{url_for('users.index')}}">About</a>
 	<a href="{{url_for('users.logout')}}">Logout</a>
 	<a href="{{url_for('users.edit', id=current_user.id)}}">Edit Profile</a>
-	<a href="">Prompts</a>
+	<a href="{{url_for('prompts.index', user_id=current_user.id)}}">Prompts</a>
 	<a href="">Play</a>
 </nav>

@@ -6,7 +6,7 @@ def ensure_correct_user(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
         # in the params we have something called id, is it the same as the user logged in?
-        if kwargs.get('id') != current_user.id:
+        if kwargs.get('id') != current_user.id and kwargs.get('user_id') != current_user.id:
             # if not, redirect them back home
             flash("Not Authorized")
             logout_user()

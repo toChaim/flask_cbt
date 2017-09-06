@@ -39,4 +39,7 @@ def dated_url_for(endpoint, **values):
 
 #blueprints
 from project.users.views import users_blueprint
+from project.prompts.views import prompts_blueprint
+
 app.register_blueprint(users_blueprint, url_prefix="/users")
+app.register_blueprint(prompts_blueprint, url_prefix="/users/<int:user_id>/prompts")

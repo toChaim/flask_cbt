@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Here are some things you think.</h1>
+<p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
+<p><a href="{{url_for('prompts.new', user_id=current_user.id)}}">Add a prompt</a></p>
+<ul>
+	{% for propmpt in prompts_list %}
+		<li>{{ propmpt.text }}</li>
+	{% endfor%}
+	
+</ul>
+
+
+{% endblock %}

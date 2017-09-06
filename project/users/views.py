@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request, url_for, Blueprint, session, flash
+from flask import redirect, render_template, request, url_for, Blueprint, flash
 from project.models import User
 from project.users.forms import UserForm, UserLoginForm, UserDeleteForm
 from project import db
@@ -62,6 +62,7 @@ def login():
 	return render_template('users/login.html', form=form)
 
 @users_blueprint.route('/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
+@ensure_correct_user
 def show(id):
 	form = UserForm(request.form)
 	d_form = UserDeleteForm(request.form)
