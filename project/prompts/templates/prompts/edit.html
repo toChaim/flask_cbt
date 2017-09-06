@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add a thought here.</h1>
-<p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
-<form method="POST" action="{{url_for('prompts.index', user_id=current_user.id)}}">
+<h1>Time to change your mind.</h1>
+<p>Be careful changing a thought will change it in your history.</p>
+<form method="POST" action="{{url_for('prompts.show', user_id=current_user.id, id=prompt.id)}}?_method=PATCH">
 	<div>{{ form.csrf_token }}
 	{{ form.title.label }}
 	{{form.title}}
@@ -17,7 +17,7 @@
 
     <div>
 	{{ form.affirmation.label }}
-	{{form.affirmation}}
+	{{form.affirmation(checked=form.affirmation.data)}}
 	{% if form.affirmation.errors %}
 		<span>
 			{% for error in form.affirmation.errors %}
@@ -26,5 +26,9 @@
 		</span>
     {% endif %}</div>
 	<input type="submit" value="Submit">
+</form>
+<form method="POST" action="{{url_for('prompts.show', user_id=current_user.id, id=prompt.id)}}?_method=DELETE">
+	{{ d_form.csrf_token }}
+	<input type="submit" value="Delete">
 </form>
 {% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>'{{prompt.title}}' is a thoguht sometimes seen in your head.</h1>
+<a href="{{url_for('prompts.edit', user_id=current_user.id, id=prompt.id)}}">Edit this thought</a>
+
+{% endblock %}

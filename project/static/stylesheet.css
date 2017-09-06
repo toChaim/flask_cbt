@@ -1,3 +1,9 @@
 h1{
 	text-align: center;
 }
+.affirmation{
+	background-color:  lightgreen;
+}
+.negative{
+	background-color: lightyellow;
+}
