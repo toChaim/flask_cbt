@@ -11,8 +11,10 @@ Setup:
 
 Goals:
 Finish Readme.
-Setup Schema.
-Get users working.
+Setup Schema. Done.
+Get users working. Done.
+Must have root route.
+Must Get working on heroku.
 
 Stretch Goals:
 

@@ -4,7 +4,5 @@ $(document).ready(function(){
 	console.log(csrf_token,user_id);
 
 	var url = `/users/${user_id}/matches`
-	var promis = $.get(url).then(function(data){
-		console.log(data)
-	})
+	var promis = $.get(url).then(function(data){ return data; })
 });

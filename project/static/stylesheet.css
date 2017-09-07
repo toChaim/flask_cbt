@@ -17,8 +17,8 @@ h1{
 	border: 1px dashed red;
 	border-radius: 70px;
 	animation: 5s ease-out 0.5s 1 fadeout;
-	/*animation-fill-mode: forwards;*/
 	opacity: 0;
+	background-color: rgba(245, 20, 140, 0.5);
 }
 .flash:hover{
 	border: 1px dashed red;
@@ -68,4 +68,8 @@ h1{
 #prompt h2{
 	background-color: orange;
 	align-items: center;
+}
+nav{
+	display: flex;
+	justify-content: space-around;
 }
