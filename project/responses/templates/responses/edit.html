@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a thought that is a possible response here.</h1>
+<h1>"{{response.prompt.title}}"</h1>
+<p>Remember "Don't believe everything you think."</p>
+<p>For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
+<form method="POST" action="{{url_for('responses.show', user_id=current_user.id, prompt_id=response.prompt_id, id=response.id)}}?_method=PATCH">
+	<div>{{ form.csrf_token }}
+	{{ form.title.label }}
+	{{form.title}}
+	{% if form.title.errors %}
+		<span>
+			{% for error in form.title.errors %}
+          		{{ error }}
+        	{% endfor %}
+		</span>
+    {% endif %}</div>
+
+    <div>
+	{{ form.affirmation.label }}
+	{{form.affirmation}}
+	{% if form.affirmation.errors %}
+		<span>
+			{% for error in form.affirmation.errors %}
+          		{{ error }}
+        	{% endfor %}
+		</span>
+    {% endif %}</div>
+	<input type="submit" value="Submit">
+</form>
+<form method="POST" action="{{url_for('responses.show', user_id=current_user.id, prompt_id=response.prompt_id, id=response.id)}}?_method=DELETE">
+	{{ d_form.csrf_token }}
+	<input type="submit" value="Delete">
+</form>
+{% endblock %}

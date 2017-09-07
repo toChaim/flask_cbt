@@ -57,10 +57,10 @@ class Response(db.Model):
 	prompt_id = db.Column(db.Integer, db.ForeignKey('prompts.id', ondelete='cascade'), nullable=False)
 	__table_args__ = (db.UniqueConstraint('prompt_id', 'title', name='_prompt_titel_uc'),)
 
-	def __init__(self, title, affirmation, user_id):
+	def __init__(self, title, affirmation, prompt_id):
 		self.title = title
 		self.affirmation = affirmation
-		self.user_id = user_id
+		self.prompt_id = prompt_id
 
 class Match(db.Model):
 	__tablename__ = 'matches'
@@ -70,4 +70,10 @@ class Match(db.Model):
 	pick_id = db.Column(db.Integer, db.ForeignKey('responses.id'))
 	start_time = db.Column(db.DateTime)
 	end_time = db.Column(db.DateTime)
+
+	def __init__(self, prompt_id, pick_id, start_time, end_time):
+		self.prompt_id = prompt_id
+		self.pick_id = pick_id
+		self.start_time = start_time
+		self.end_time = end_time
 

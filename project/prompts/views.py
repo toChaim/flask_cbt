@@ -33,6 +33,7 @@ def index(user_id):
 	return render_template('prompts/index.html', prompts_list=prompts_list)
 
 @prompts_blueprint.route('/new')
+@ensure_correct_user
 def new(user_id):
 	form = PromptForm(request.form)
 	return render_template('prompts/new.html', form=form)
@@ -70,3 +71,4 @@ def edit(user_id, id):
 	form = PromptForm(obj=prompt)
 	d_form = PromptDeleteForm()
 	return render_template('prompts/edit.html', prompt=prompt, form=form, d_form=d_form)
+	

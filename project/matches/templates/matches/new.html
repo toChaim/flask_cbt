@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add a thought here.</h1>
+<p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
+<form method="POST" action="{{url_for('matches.index', user_id=current_user.id)}}">
+	{{ form.csrf_token }}
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

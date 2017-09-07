@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>"{{response.title}}" is a thoguht you sometimes think in response to "{{response.prompt.title}}".</h1>
+<p>Please remeber, "Don't believe everything you think."</p>
+<a href="{{url_for('responses.edit', user_id=current_user.id, prompt_id=response.prompt_id, id=response.id)}}">Edit this thought</a>
+{% endblock %}

@@ -41,7 +41,9 @@ def dated_url_for(endpoint, **values):
 from project.users.views import users_blueprint
 from project.prompts.views import prompts_blueprint
 from project.responses.views import responses_blueprint
+from project.matches.views import matches_blueprint
 
 app.register_blueprint(users_blueprint, url_prefix="/users")
 app.register_blueprint(prompts_blueprint, url_prefix="/users/<int:user_id>/prompts")
 app.register_blueprint(responses_blueprint, url_prefix="/users/<int:user_id>/prompts/<int:prompt_id>/responses")
+app.register_blueprint(matches_blueprint, url_prefix="/users/<int:user_id>/matches")

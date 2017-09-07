@@ -3,5 +3,10 @@
 {% block content %}
 <h1>'{{prompt.title}}' is a thoguht sometimes seen in your head.</h1>
 <a href="{{url_for('prompts.edit', user_id=current_user.id, id=prompt.id)}}">Edit this thought</a>
-
+<a href="{{url_for('responses.new', user_id=current_user.id, prompt_id=prompt.id)}}">Add more reponses</a>
+<ul>
+{% for response in prompt.responses %}
+<li><a href="{{url_for('responses.show',user_id=current_user.id,prompt_id=prompt.id,id=response.id)}}">{{response.title}}</a><a href=""></a></li>
+{% endfor %}
+</ul>
 {% endblock %}
