@@ -7,3 +7,65 @@ h1{
 .negative{
 	background-color: lightyellow;
 }
+.flash{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	width: 300px;
+	margin-left: -150px;
+	text-align: center;
+	border: 1px dashed red;
+	border-radius: 70px;
+	animation: 5s ease-out 0.5s 1 fadeout;
+	/*animation-fill-mode: forwards;*/
+	opacity: 0;
+}
+.flash:hover{
+	border: 1px dashed red;
+	opacity: 1;
+}
+
+@keyframes fadeout{
+	0%{
+		box-shadow: 0px 0px 0px 0px rgba(255, 20, 147, 0);
+		opacity: 1;
+		color: black;
+	}
+	50%{
+		box-shadow: 0px 0px 60px 20px rgba(255, 20, 147, 1);
+	}
+	90%{
+		top: 45%;
+		left: 50%;
+		color: rgba(0,0,0,0);
+	}
+	100%{
+		opacity: 0;
+	}
+}
+.board{
+	display: flex;
+	flex-direction: column;
+	border: 1px dashed red;
+	width: 80vw;
+	height: 50vh;
+	margin: 0 auto;
+}
+.board div{
+	flex-grow: 1;
+}
+.board *{
+	display: flex;
+	justify-content: space-around;
+	border: 1px dashed red;
+	margin: 0 auto;
+	width: 100%;
+
+}
+.choice{
+	width: 46%;
+}
+#prompt h2{
+	background-color: orange;
+	align-items: center;
+}

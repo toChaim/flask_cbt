@@ -1,6 +1,6 @@
 #imports, settings, functions, blueprints
 #imports
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template, flash
 from flask_modus import Modus
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
@@ -47,3 +47,7 @@ app.register_blueprint(users_blueprint, url_prefix="/users")
 app.register_blueprint(prompts_blueprint, url_prefix="/users/<int:user_id>/prompts")
 app.register_blueprint(responses_blueprint, url_prefix="/users/<int:user_id>/prompts/<int:prompt_id>/responses")
 app.register_blueprint(matches_blueprint, url_prefix="/users/<int:user_id>/matches")
+
+@app.errorhandler(404)
+def exception_handler(e):
+    return render_template('404.html'), 404

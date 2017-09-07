@@ -18,12 +18,10 @@
 	{% endif %}
 	
 	{% for message in get_flashed_messages() %}
-	    {{ message }}
+	    <div class="flash"><h3>{{ message }}</h3></div>
 	{% endfor %}
 	
     {% block content %}
     {% endblock %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{{url_for('static', filename='flask_cbt.js')}}"></script>
 </body>
 </html>

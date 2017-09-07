@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add a thought here.</h1>
+<h1>Let's Play with your mind.</h1>
 <p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
-<form method="POST" action="{{url_for('matches.index', user_id=current_user.id)}}">
+<form type="hidden" method="POST" action="{{url_for('matches.index', user_id=current_user.id)}}">
 	{{ form.csrf_token }}
-	<input type="submit" value="Submit">
+	<input id="user_id" type="hidden" value="{{ user_id }}">
+	<input type="hidden" type="submit" value="Submit">
 </form>
+<div class="board">
+	<div><button id="btn0" class="choice"></button>
+	<button id="btn1" class="choice"></button></div>
+	<div id="prompt"><h2>You are willing to change and grow.</h2></div>
+	<div><button id="btn2" class="choice">Yes, I am.</button>
+	<button id="btn3" class="choice">No, I am not.</button></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{url_for('static', filename='flask_cbt.js')}}"></script>
 {% endblock %}

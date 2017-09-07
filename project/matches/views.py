@@ -1,6 +1,6 @@
-from flask import redirect, render_template, request, url_for, Blueprint, flash
+from flask import redirect, render_template, request, url_for, Blueprint, flash, jsonify
 from project.decorators import ensure_correct_user
-from project.models import Match
+from project.models import Match, User
 from project.matches.forms import MatchForm
 from project import db
 from sqlalchemy.exc import IntegrityError
@@ -23,13 +23,22 @@ def index(user_id):
 				flash('Something Went Wrong')
 				return 'oopse try again.'
 
-	json_data = 'json_data'
-	return render_template('matches/index.html', json_data=json_data)
+	prompts = User.query.get(user_id).prompts
+	json_data = []
+	for p in prompts:
+		responses = p.responses
+		p_responses = []
+		for r in responses:
+			p_responses.append({ 'id': r.id, 'title': r.title, 'affirmation': r.affirmation, 'prompt_id': r.prompt_id })
+
+		json_data.append({ 'id': p.id, 'title': p.title, 'affirmation': p.affirmation, 'user_id': p.user_id, 'responses': p_responses })
+	
+	return jsonify(json_data)
 
 @matches_blueprint.route('/new')
 @ensure_correct_user
 def new(user_id):
 	form = MatchForm()
 	json_data = 'json_data'
-	return render_template('matches/new.html', form=form, json_data=json_data)
+	return render_template('matches/new.html', form=form, user_id=user_id)
 
