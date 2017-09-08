@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Let's Play with your mind.</h1>
-<p>Click on the best response you see to the prompt in the middle.</p>
+<p>Click on the best response you see to the prompt in the middle. Sometimes that will be supporting or counter evidence. Sometime it will be pointing out error in the logic of the thought. Sometimes it will be agreement or denial.</p>
 <form type="hidden" method="POST" action="{{url_for('matches.index', user_id=current_user.id)}}">
 	{{ form.csrf_token }}
 	<input id="user_id" type="hidden" value="{{ user_id }}">
