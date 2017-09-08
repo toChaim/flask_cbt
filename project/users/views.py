@@ -12,7 +12,7 @@ users_blueprint = Blueprint('users', __name__, template_folder='templates')
 def index():
 	if request.method == 'POST':
 		form = UserForm(request.form)
-		from IPython import embed; embed()
+		
 		if form.validate():
 			try:
 				new_user = User(form.data['first_name'],
