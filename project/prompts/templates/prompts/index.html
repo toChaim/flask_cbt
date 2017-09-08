@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Here are some things you think.</h1>
+<h1>Here are some things you think. <a href="{{url_for('prompts.new', user_id=current_user.id)}}">Add more.</a></h1>
 <p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
-<p><a href="{{url_for('prompts.new', user_id=current_user.id)}}">Add a prompt</a></p>
 <ul>
 	{% for prompt in prompts_list %}
 		{% set jinja_class = 'neutral' %}
 		{% if prompt.affirmation == True %}{% set jinja_class = 'affirmation' %}
 		{% elif prompt.affirmation == False %}{% set jinja_class = 'negative' %}
 		{% endif %}
-		<li class="{{ jinja_class }}"
-		><a href="{{url_for('prompts.show', user_id=current_user.id, id=prompt.id)}}">{{ prompt.title }}</a></li>
+		<li >
+		<ol><div class="{{ jinja_class }} prompt"><a href="{{url_for('prompts.show', user_id=current_user.id, id=prompt.id)}}">{{ prompt.title }}</a></div>
+			{% for response in prompt.responses %}
+				{% set jinja_class = 'neutral' %}
+				{% if response.affirmation == True %}{% set jinja_class = 'affirmation' %}
+				{% elif response.affirmation == False %}{% set jinja_class = 'negative' %}
+				{% endif %}
+				<li>
+				<div class="{{ jinja_class }} response"><a href="{{url_for('responses.show', user_id=current_user.id, prompt_id=prompt.id, id=response.id)}}">
+				{{ response.title }}</a></div></li>
+			{% endfor%}
+			</ol></li>
 	{% endfor%}
-	
 </ul>
 
 

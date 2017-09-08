@@ -1,13 +1,23 @@
 $(document).ready(function(){
 	var user_id = $('#user_id').val();
 	var csrf_token = $('#csrf_token').val();
+	var $board = $('#board')
 	var $prompt = $('#prompt h2');
 	var $btn2 = $('#btn2');
 	var $btn3 = $('#btn3');
 	var allArr = [];
+	var goodMessages = ['Yeah!!!', 'Right On', 'You Win!', 'Shazam', 'Nice work.', 'Pow'];
+	var badNews = ['Oops', 'uh oh', 'ouch!'];
 
-	$('#board').on('click', 'button', function(e){
+	$board.on('click', 'button', function(e){
 		console.log($(e.target).data('win'));
+		if($(e.target).data('win')){
+			$board.after($('<p>',
+				{
+					'id': "flash",
+					'text': goodMessages[ Math.floor(Math.random() * goodMessages.length) ],
+					'class': 'flash'}));
+		}
 		display(matchConstruct());
 	});
 

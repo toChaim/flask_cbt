@@ -9,16 +9,16 @@ class BaseTestCase(TestCase):
 		app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///testing.db'
 		return app
 
-	# def setUp(self):
-	# 	db.create_all()
+	def setUp(self):
+	 	db.create_all()
 	# 	person1 = User("Elie", "Schoppik", "p")
 	# 	person2 = User("Tim", "Garcia", "q")
 	# 	person3 = User("Matt", "Lane", "123")
 	# 	db.session.add_all([person1, person2, person3])
 	# 	db.session.commit()
 
-	# def tearDown(self):
-	# 	db.drop_all()
+	def tearDown(self):
+	 	db.drop_all()
 
 	def test_index(self):
 		response = self.client.get('/', follow_redirects=True, content_type='html/text')
@@ -36,7 +36,7 @@ class BaseTestCase(TestCase):
 		response = self.client.post(
 			'/users/',
 			data=dict(first_name="New", username="Student", password="p", confirm="p", csrf_token=csrf_token),
-			follow_redirects=False
+			follow_redirects=True
 			)
 		self.assertEqual(response.status_code, 200)
 		self.assertNotIn(b'Invalid submission. Please try again.', response.data)

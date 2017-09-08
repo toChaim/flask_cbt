@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Let's Play with your mind.</h1>
-<p>We often just accept thoughts because "we" thought them. Many of these are unpleasant, unhelpful, and untrue. In the game we will learn better reactions to these. For the purposes of the game it is helpful to have about as many thoughts that are positive, neutral, and negative.</p>
+<p>Click on the best response you see to the prompt in the middle.</p>
 <form type="hidden" method="POST" action="{{url_for('matches.index', user_id=current_user.id)}}">
 	{{ form.csrf_token }}
 	<input id="user_id" type="hidden" value="{{ user_id }}">
@@ -15,7 +15,6 @@
 	<div><button id="btn2" class="choice">Yes, I am.</button>
 	<button id="btn3" class="choice">No, I am not.</button></div>
 </div>
-	<p class="hidden flash">This will hold our winnings</p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="{{url_for('static', filename='flask_cbt.js')}}"></script>

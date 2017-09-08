@@ -10,10 +10,10 @@
 	  {% include 'user_nav.html' %}
 	{% else %}
 		<nav>
-			<a href="{{url_for('users.index')}}">About</a>
-			<a href="{{url_for('users.new')}}">Sign Up</a>
-			<a href="{{url_for('users.login')}}">Login</a>
-			<a href="">Play</a>
+			<div class="a_link"><a href="{{url_for('users.index')}}">About</a></div>
+			<div class="a_link"><a href="{{url_for('users.new')}}">Sign Up</a></div>
+			<div class="a_link"><a href="{{url_for('users.login')}}">Login</a></div>
+			<div class="a_link"><a href="">Play</a></div>
 		</nav>
 	{% endif %}
 	
