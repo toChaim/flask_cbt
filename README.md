@@ -13,8 +13,9 @@ Goals:
 Finish Readme.
 Setup Schema. Done.
 Get users working. Done.
-Must have root route.
-Must Get working on heroku.
+Must have root route. Done.
+Must Get working on heroku. Done.
+404 must return a code 404.
 
 Stretch Goals:
 

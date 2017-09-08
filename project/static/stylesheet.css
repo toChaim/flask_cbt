@@ -43,7 +43,7 @@ h1{
 		opacity: 0;
 	}
 }
-.board{
+#board{
 	display: flex;
 	flex-direction: column;
 	border: 1px dashed red;
@@ -51,10 +51,10 @@ h1{
 	height: 50vh;
 	margin: 0 auto;
 }
-.board div{
+#board div{
 	flex-grow: 1;
 }
-.board *{
+#board *{
 	display: flex;
 	justify-content: space-around;
 	border: 1px dashed red;

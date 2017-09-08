@@ -12,6 +12,7 @@ users_blueprint = Blueprint('users', __name__, template_folder='templates')
 def index():
 	if request.method == 'POST':
 		form = UserForm(request.form)
+		from IPython import embed; embed()
 		if form.validate():
 			try:
 				new_user = User(form.data['first_name'],
@@ -28,7 +29,7 @@ def index():
 		# form not vlalid
 		else:
 			flash("Invalid submission. Please try again.")
-			return render_template('users/new.html', form=form)
+			return render_template('users/new.html', form=form), 422
 
 	return render_template('users/index.html')
 

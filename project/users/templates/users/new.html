@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Signing up for my little game.</h1>
-<p>Signing up for the game lets you customize the game for yourself. You can also see your history.</p>
+<p>Create a heroic identity now. Signing up for the game lets you customize the game for yourself. You can also see your history.</p>
 <form method="POST" action="{{url_for('users.index')}}">
 	<div>{{ form.csrf_token }}
 	{{ form.first_name.label }}
