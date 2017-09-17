@@ -17,7 +17,7 @@
 				{% elif response.affirmation == False %}{% set jinja_class = 'negative' %}
 				{% endif %}
 				<li>
-				<div class="{{ jinja_class }} response"><a href="{{url_for('responses.show', user_id=current_user.id, prompt_id=prompt.id, id=response.id)}}">
+				<div><a class="{{ jinja_class }} response" href="{{url_for('responses.show', user_id=current_user.id, prompt_id=prompt.id, id=response.id)}}">
 				{{ response.title }}</a></div></li>
 			{% endfor%}
 			</ol></li>

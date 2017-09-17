@@ -68,10 +68,10 @@ ol, ul, li{
 	display: inline-block;
 	text-align: center;
 	align-self: center;
-	line-height: 0;
 }
 .response{
 	margin: 0 auto;
+	display: inline-block;
 	width: 80%;
 	text-indent: 3%;
 	background-color: #7BC7C5;
