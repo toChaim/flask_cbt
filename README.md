@@ -1,6 +1,6 @@
 # About this app:
 As we go through our lives thoughts automatically come into our consciousness. Many of these are unpleasant, unhelpful, and untrue. We often just accept them because we thought them. Cognitive Behavioral Therapy (CBT) is one of the most studied and successful forms of therapy. It gets us to think critically about what we are saying to ourselves and associate new thoughts with our automatic thoughts. My idea is to harness the ability of computer games to reinforce connecting helpful responses to automatic thoughts.  
-Come and give it a try at https://flask-cbt.herokuapp.  com.  
+Come and give it a try at https://flask-cbt.herokuapp.com.  
 # Technologies used:
 Flask
 * PostgreSQL  
