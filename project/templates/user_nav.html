@@ -1,8 +1,11 @@
 <nav>
-	<div class="a_link"><a href="{{url_for('users.show',id=current_user.id)}}">{{current_user.username}}</a></div>
+	<div class="a_link drop_down_parent"><a href="{{url_for('users.show',id=current_user.id)}}">{{current_user.username}}</a>
+    <div class="drop_down_child">
+      <div class="a_link"><a href="{{url_for('users.logout')}}">Logout</a></div>
+      <div class="a_link"><a href="{{url_for('users.edit', id=current_user.id)}}">Edit Profile</a></div>
+    </div>
+  </div>
 	<div class="a_link"><a href="{{url_for('users.index')}}">About</a></div>
-	<div class="a_link"><a href="{{url_for('users.logout')}}">Logout</a></div>
-	<div class="a_link"><a href="{{url_for('users.edit', id=current_user.id)}}">Edit Profile</a></div>
 	<div class="a_link"><a href="{{url_for('prompts.index', user_id=current_user.id)}}">Prompts</a></div>
 	<div class="a_link"><a href="{{url_for('matches.new', user_id=current_user.id)}}">Play</a></div>
 </nav>

@@ -1,24 +1,23 @@
 /* gloabal */
-body{
-	font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
+body {
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
 }
-h1{
+h1 {
 	text-align: center;
 }
-p{
+p {
 	margin: 50px;
 	text-align: justify;
 }
 
-
 /* navbar settings */
-nav{
+nav {
 	display: flex;
 	justify-content: space-around;
 	padding: 20px;
-	background-color: #0F6B6A;
+	background-color: #0f6b6a;
 }
-a{
+a {
 	line-height: 2;
 	text-decoration: none;
 	color: black;
@@ -26,21 +25,21 @@ a{
 	transition: 0.25s;
 }
 
-nav a{
+nav a {
 	color: whitesmoke;
 	text-shadow: -2px -1px 1px #000;
 	display: inline-block;
-	width: 200px;
+	width: 19vw;
 	text-align: center;
 	align-self: center;
 	line-height: 0;
 }
-.a_link:hover{
+.a_link:hover {
 	background-color: orange;
 	border-radius: 100px;
 	box-shadow: 0px 0px 5px 5px orange; /* #7BC7C5 #c64e9d;*/
 }
-.a_link:hover a{
+.a_link:hover a {
 	color: black;
 	text-shadow: -2px -1px 1px #fff;
 	font-size: 1.5em;
@@ -48,10 +47,26 @@ nav a{
 	line-height: 0;
 	/*transition: line-height 0s;*/
 }
-
+.drop_down_parent {
+}
+.drop_down_child {
+	display: none;
+	background-color: #7bc7c5;
+}
+.drop_down_parent:hover .drop_down_child > .a_link,
+.drop_down_parent:focus .drop_down_child > .a_link {
+	margin-top: 7px;
+}
+.drop_down_parent:hover .drop_down_child,
+.drop_down_parent:focus .drop_down_child {
+	position: absolute;
+	display: block;
+}
 
 /* lists */
-ol, ul, li{
+ol,
+ul,
+li {
 	list-style: none;
 }
 .prompt {
@@ -59,41 +74,42 @@ ol, ul, li{
 	width: 90%;
 	text-indent: 1%;
 	border-radius: 100px;
-	background-color: #0F6B6A;
+	background-color: #0f6b6a;
 	font-size: 1.2em;
 }
-.prompt a{
+.prompt a {
 	color: whitesmoke;
 	text-shadow: -2px -1px 1px #000;
 	display: inline-block;
 	text-align: center;
 	align-self: center;
 }
-.response{
+.response {
 	margin: 0 auto;
 	display: inline-block;
 	width: 80%;
 	text-indent: 3%;
-	background-color: #7BC7C5;
+	background-color: #7bc7c5;
 }
-.prompt:hover, .response:hover{
+.prompt:hover,
+.response:hover {
 	background-color: orange;
 	border-radius: 100px;
 	box-shadow: 0px 0px 5px 5px orange;
 }
-.prompt:hover a, .response:hover a{
+.prompt:hover a,
+.response:hover a {
 	color: black;
 	text-shadow: -2px -1px 1px #fff;
 	padding: 0;
 }
-.neutral{
-
+.neutral {
 }
-.affirmation{
+.affirmation {
 }
-.negative{
+.negative {
 }
-.flash{
+.flash {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -105,59 +121,58 @@ ol, ul, li{
 	opacity: 1;
 	background-color: rgba(255, 20, 147, 0.5);
 }
-.flash:hover{
+.flash:hover {
 	opacity: 1;
 }
 
-@keyframes fadeout{
-	0%{
+@keyframes fadeout {
+	0% {
 		box-shadow: 0px 0px 0px 0px rgba(255, 20, 147, 0);
 		opacity: 1;
 		color: black;
 	}
-	50%{
+	50% {
 		box-shadow: 0px 0px 60px 20px rgba(255, 20, 147, 1);
 	}
-	90%{
+	90% {
 		top: 45%;
 		left: 50%;
-		color: rgba(0,0,0,0);
+		color: rgba(0, 0, 0, 0);
 	}
-	100%{
+	100% {
 		opacity: 0;
 	}
 }
 
 /* game board */
 
-button{
+button {
 	font-size: 1.2em;
-	border: 2px solid #0F6B6A;
+	border: 2px solid #0f6b6a;
 	background-color: whitesmoke;
 }
-#board{
+#board {
 	display: flex;
 	flex-direction: column;
 	border: 1px dashed red;
 	width: 80vw;
 	height: 50vh;
 	margin: 0 auto;
-	border: 5px solid #0F6B6A;
+	border: 5px solid #0f6b6a;
 }
-#board div{
+#board div {
 	flex-grow: 1;
 }
-#board *{
+#board * {
 	display: flex;
 	justify-content: space-around;
 	margin: 0 auto;
 	width: 100%;
-
 }
-.choice{
+.choice {
 	width: 46%;
 }
-#prompt h2{
+#prompt h2 {
 	background-color: orange;
 	align-items: center;
 }
